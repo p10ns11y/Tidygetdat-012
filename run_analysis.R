@@ -44,7 +44,7 @@ mergedData <- cbind(subject,y,X)
 # 5. From the data set in step 4, creating a second, independent tidy data set 
 # with the average of each variable for each activity and each subject
 
-meltData <- melt(tidydata, id=c("subject","activity")) # all vars default
+meltData <- melt(mergeddata, id=c("subject","activity")) # all vars default
 tidySensorData <- dcast(meltData, subject + activity ~ variable, mean)
 
 write.table(tidySensorData, "tidy_acc_sensor_data.txt", row.name=FALSE)
